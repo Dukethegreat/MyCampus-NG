@@ -1,12 +1,7 @@
 "use client";
 
 import Link from "next/link";
-
-const events = [
-  { title: "Career Fair 2025", date: "Fri, 10 Oct", location: "Main Auditorium", host: "Career Center" },
-  { title: "Faculty Debate Night", date: "Sat, 11 Oct", location: "Lecture Hall 2", host: "SUG" },
-  { title: "Freshers Jam", date: "Sun, 12 Oct", location: "Campus Garden", host: "Creative Club" },
-];
+import { mockEvents } from "../lib/mock-data";
 
 export default function EventsPage() {
   return (
@@ -20,7 +15,7 @@ export default function EventsPage() {
       </header>
 
       <div className="section-list">
-        {events.map((event) => (
+        {mockEvents.map((event) => (
           <article key={event.title} className="info-card event-card">
             <div className="event-date">
               <strong>{event.date.split(",")[0]}</strong>

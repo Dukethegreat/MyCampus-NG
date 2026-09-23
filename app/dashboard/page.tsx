@@ -1,17 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { mockAnnouncements, mockEvents } from "../lib/mock-data";
 
 const stats = [
   { label: "Connections", value: "12.7k" },
   { label: "Communities", value: "86" },
   { label: "Events", value: "24" },
-];
-
-const feed = [
-  { id: 1, type: "Campus announcement", author: "UNILAG Admin", time: "2h", text: "Admissions screening resumes on Tuesday. Visit the student portal for updates." },
-  { id: 2, type: "Study group", author: "CSE 300", time: "4h", text: "Anyone taking Data Structures? Share your note summary and exam prep plan." },
-  { id: 3, type: "Event", author: "SUG Media", time: "6h", text: "Freshers week talent show is happening this Friday at the central auditorium." },
 ];
 
 export default function DashboardPage() {
@@ -21,11 +16,12 @@ export default function DashboardPage() {
         <div className="brand"><span className="brand-mark">M</span> MyCampus <b>NG</b></div>
         <nav className="dashboard-nav">
           <Link href="/dashboard">Home</Link>
-          <Link href="/dashboard">Communities</Link>
-          <Link href="/dashboard">Announcements</Link>
-          <Link href="/dashboard">Events</Link>
-          <Link href="/dashboard">Marketplace</Link>
-          <Link href="/dashboard">Profile</Link>
+          <Link href="/communities">Communities</Link>
+          <Link href="/announcements">Announcements</Link>
+          <Link href="/events">Events</Link>
+          <Link href="/marketplace">Marketplace</Link>
+          <Link href="/profile">Profile</Link>
+          <Link href="/notifications">Notifications</Link>
         </nav>
       </aside>
 
@@ -59,16 +55,16 @@ export default function DashboardPage() {
         </div>
 
         <div className="feed-list">
-          {feed.map((post) => (
-            <article key={post.id} className="dashboard-post">
+          {mockAnnouncements.map((post) => (
+            <article key={post.title} className="dashboard-post">
               <div className="post-head">
-                <span className="avatar purple">{post.author.slice(0,2).toUpperCase()}</span>
+                <span className="avatar purple">UN</span>
                 <div>
-                  <strong>{post.author}</strong>
-                  <small>{post.type} · {post.time}</small>
+                  <strong>UNILAG Admin</strong>
+                  <small>Campus announcement · {post.time}</small>
                 </div>
               </div>
-              <p>{post.text}</p>
+              <p><strong>{post.title}</strong><br />{post.detail}</p>
             </article>
           ))}
         </div>
@@ -83,9 +79,9 @@ export default function DashboardPage() {
         <div className="card compact-card">
           <h3>Upcoming events</h3>
           <ul>
-            <li>Tech Career Fair — Fri</li>
-            <li>Faculty debate — Sat</li>
-            <li>Hostel hangout — Sun</li>
+            {mockEvents.map((event) => (
+              <li key={event.title}>{event.title} — {event.date.split(",")[0]}</li>
+            ))}
           </ul>
         </div>
       </aside>

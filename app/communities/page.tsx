@@ -1,13 +1,7 @@
 "use client";
 
 import Link from "next/link";
-
-const communities = [
-  { name: "UNILAG Community", members: "18.4k", type: "Institution", color: "purple" },
-  { name: "Computer Science", members: "5.2k", type: "Department", color: "green" },
-  { name: "Campus Events", members: "9.1k", type: "Club", color: "orange" },
-  { name: "Student Union", members: "7.8k", type: "Organization", color: "blue" },
-];
+import { mockCommunities } from "../lib/mock-data";
 
 export default function CommunitiesPage() {
   return (
@@ -21,7 +15,7 @@ export default function CommunitiesPage() {
       </header>
 
       <div className="section-grid">
-        {communities.map((community) => (
+        {mockCommunities.map((community) => (
           <article key={community.name} className="info-card community-card">
             <span className={`tag ${community.color}`}>{community.type}</span>
             <h3>{community.name}</h3>

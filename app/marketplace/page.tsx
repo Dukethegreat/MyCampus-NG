@@ -1,12 +1,7 @@
 "use client";
 
 import Link from "next/link";
-
-const listings = [
-  { title: "Dell Laptop 14-inch", price: "₦220,000", seller: "Adaeze", tag: "Electronics" },
-  { title: "Physics Textbook Set", price: "₦12,500", seller: "Tunde", tag: "Books" },
-  { title: "Mini Fridge", price: "₦70,000", seller: "Mariam", tag: "Hostel" },
-];
+import { mockMarketplace } from "../lib/mock-data";
 
 export default function MarketplacePage() {
   return (
@@ -20,7 +15,7 @@ export default function MarketplacePage() {
       </header>
 
       <div className="section-grid">
-        {listings.map((item) => (
+        {mockMarketplace.map((item) => (
           <article key={item.title} className="info-card marketplace-card">
             <span className="tag purple">{item.tag}</span>
             <h3>{item.title}</h3>
