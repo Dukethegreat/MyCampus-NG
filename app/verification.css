@@ -1,0 +1,3 @@
+.verification-card { max-width: 620px; }
+.verification-card .auth-subtitle { margin-bottom: 22px; }
+.verification-card input[type="file"] { padding: 10px; }
