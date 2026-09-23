@@ -1,35 +1,35 @@
 # MyCampus NG
 
-A social network for Nigeria's higher-institution community — where students, staff, alumni, creators, businesses, and institutions connect, share, learn, and discover what is happening on campus.
-
-## Current MVP
-
-This repository contains the first responsive, web-first interface for MyCampus NG:
-
-- Social feed with For You, Following, and My School tabs
-- Text post composer
-- Like and follow interactions
-- Trending campus topics
-- People discovery
-- Navigation for Discover, Communities, Events, and Marketplace
-- Responsive mobile layout
+A social network for Nigeria's higher-institution community.
 
 ## Run locally
 
+1. Install dependencies:
+
 ```bash
 npm install
+```
+
+2. Copy `.env.example` to `.env.local` and add the Supabase project URL and anonymous key from Supabase Project Settings → API.
+
+3. Run the app:
+
+```bash
 npm run dev
 ```
 
-Then open `http://localhost:3000`.
+Open `http://localhost:3000`.
 
-## Next implementation milestones
+## Supabase setup
 
-1. Add Supabase authentication and institution onboarding.
-2. Add PostgreSQL data models for profiles, posts, communities, events, and verification requests.
-3. Add media uploads, stories, reels, announcements, and marketplace listings.
-4. Add moderation and institution-admin dashboards.
+Run `supabase/schema.sql` in the Supabase SQL editor. Then enable the email provider under Authentication → Providers. For production, configure your site URL and redirect URLs in Authentication → URL Configuration.
 
-## Brand
+Never add a `service_role` key to the browser or commit secrets to GitHub. The public anonymous key is safe for browser use only with Row Level Security enabled.
 
-**MyCampus NG — Where campus life happens.**
+## Current MVP
+
+- Responsive social feed
+- Sign-up and login connected to Supabase Auth
+- Institution onboarding interface
+- Initial profiles, posts, follows, and verification-request schema
+- Trending topics, communities, events, and marketplace navigation
