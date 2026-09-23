@@ -1,0 +1,15 @@
+.discover-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+.notification-card {
+  display:grid;
+  gap:8px;
+}
+.notification-card strong {
+  font-size:15px;
+}
+.notification-card small {
+  color:var(--muted);
+}
